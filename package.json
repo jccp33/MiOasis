@@ -1,8 +1,8 @@
 {
-    "name": "MiOasis",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "note": "node ./tools/add-note.js"
-    }
+  "name": "mioasis",
+  "version": "1.0.0",
+  "scripts": {
+    "add-note": "node ./tools/add-note.js"
+  },
+  "license": "MIT"
 }
