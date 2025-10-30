@@ -1,0 +1,25 @@
+# Notes
+**/_notes_.txt
+_notes_.txt
+
+# .NET
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.swp
+*.dbmdl
+*.log
+*.vs/
+project.lock.json
+
+# Vite / React
+node_modules/
+dist/
+.vscode/
+.env
+*.local
+
+# Sistema / Otros
+.DS_Store
+Thumbs.db

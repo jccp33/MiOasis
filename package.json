@@ -1,0 +1,8 @@
+{
+    "name": "MiOasis",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "note": "node ./tools/add-note.js"
+    }
+}
