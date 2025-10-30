@@ -8,10 +8,10 @@ El objetivo inicial es construir un **generador de avatares 3D** totalmente func
 
 ## 🧩 Estructura del Proyecto
 
-MiOasis/
-├─ Oasis.Api/       # Backend ASP.NET Core Web API (.NET 8)
-├─ Oasis.Web/       # Frontend React + Three.js (Vite)
-└─ *notes*.txt      # Diario local de desarrollo (ignorado en Git)
+MiOasis
+    Oasis.Api/       # Backend ASP.NET Core Web API (.NET 8)
+    Oasis.Web/       # Frontend React + Three.js (Vite)
+    _notes_.txt      # Diario local de desarrollo (ignorado en Git)
 
 ---
 
