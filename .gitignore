@@ -1,0 +1,66 @@
+# Ignorar todo en la raíz
+/*
+
+# Excepciones: mantener estos archivos
+!.gitignore
+!README.md
+!LICENSE
+
+# Archivos específicos a incluir (si los hay)
+# !archivo_importante.txt
+
+# Directorios a incluir (si los hay)
+!src/
+!docs/
+!assets/
+
+# Configuraciones específicas
+!.gitattributes
+!.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Godot
+.import/
+.import/
+*.import
+*.godot/
+*.mono/
+.mono/
+
+# Archivos de proyecto
+*.pck
+*.zip
+*.exe
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+*.env
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.sln
+*.csproj
+*.user
+*.suo
+*.vs/
+
+# Archivos de compilación
+bin/
+obj/
+build/
+dist/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
