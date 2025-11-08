@@ -5,62 +5,123 @@
 !.gitignore
 !README.md
 !LICENSE
+!CONTRIBUTING.md
+!project.godot  # Archivo de proyecto Godot
 
-# Archivos específicos a incluir (si los hay)
-# !archivo_importante.txt
-
-# Directorios a incluir (si los hay)
+# Directorios principales a incluir
 !src/
 !docs/
 !assets/
+!tools/
+
+# Archivos específicos a incluir
+!*.md  # Incluir todos los archivos markdown
 
 # Configuraciones específicas
 !.gitattributes
 !.gitkeep
 
-# Python
-__pycache__/
-*.py[cod]
-
-# Godot
+# ===== Godot =====
+# Directorios de importación y exportación
 .import/
-.import/
+.export/
 *.import
+
+# Archivos generados por Godot
 *.godot/
 *.mono/
 .mono/
+.cache/
 
-# Archivos de proyecto
+# Archivos de proyecto Godot
 *.pck
 *.zip
 *.exe
 
-# Archivos de sistema
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===== Sistema =====
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Archivos de entorno
+# ===== Entorno =====
 .env
 *.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Archivos de IDE
+# ===== IDEs y editores =====
 .idea/
 .vscode/
-*.sln
-*.csproj
-*.user
 *.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.slnf
+*.sw?
+*.user
+*.userosscache
+*.sln.docstates
 *.vs/
+*.vscode/
 
-# Archivos de compilación
+# ===== Archivos de compilación =====
 bin/
 obj/
 build/
 dist/
 
-# Archivos temporales
+# ===== Archivos temporales =====
 *.tmp
 *.temp
 *.bak
 *.swp
 *~
+
+# ===== Logs =====
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== Archivos de depuración =====
+*.pdb
+*.pdb.zip
+*.pdb.enc
+
+# ===== Archivos de sistema =====
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
