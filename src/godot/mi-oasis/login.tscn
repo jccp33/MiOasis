@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://btf2s2i8gsmhp"]
+
+[ext_resource type="Script" uid="uid://bfpmeofs2g2tx" path="res://scripts/LoginPanel.cs" id="1_3n56f"]
+[ext_resource type="FontFile" uid="uid://bgm8bf7v4x7r5" path="res://fonts/static/RobotoMono-Regular.ttf" id="1_cau7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqty5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma4wh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s12h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cau7c"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n56f"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlo4h"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvvwm"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hqeh"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edd8a"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 400)
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqty5")
+script = ExtResource("1_3n56f")
+
+[node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 80
+text = "Mi Oasis"
+horizontal_alignment = 1
+
+[node name="LineEditUser" type="LineEdit" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ma4wh")
+placeholder_text = "Usuario"
+alignment = 1
+
+[node name="LineEditPass" type="LineEdit" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0s12h")
+placeholder_text = "Contraseña"
+alignment = 1
+
+[node name="ButtonLogin" type="Button" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cau7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3n56f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlo4h")
+text = "INGRESAR"
+
+[node name="ButtonRegister" type="Button" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cau7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3n56f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlo4h")
+text = "REGISTRARSE"
+
+[node name="ButtonLogout" type="Button" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_cau7c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_bvvwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6hqeh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_edd8a")
+text = "SALIR"
+
+[connection signal="pressed" from="LoginPanel/MarginContainer/VBoxContainer/ButtonLogin" to="LoginPanel" method="_on_button_login_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VBoxContainer/ButtonRegister" to="LoginPanel" method="_on_button_register_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VBoxContainer/ButtonLogout" to="LoginPanel" method="_on_button_logout_pressed"]

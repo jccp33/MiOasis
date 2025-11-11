@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cx7jbdiq7oumd"]
+
+[ext_resource type="Script" uid="uid://doj70nwqnoqoo" path="res://scripts/RegisterPanel.cs" id="1_37wl2"]
+[ext_resource type="FontFile" uid="uid://bgm8bf7v4x7r5" path="res://fonts/static/RobotoMono-Regular.ttf" id="2_vinpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y8y5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5oeg"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpvxc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njfv1"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tpvr"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mubhe"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab532"]
+bg_color = Color(0.5137255, 0.4862745, 0.09019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejc2p"]
+bg_color = Color(0.5137255, 0.4862745, 0.09019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opb8p"]
+bg_color = Color(0.5137255, 0.4862745, 0.09019608, 1)
+
+[node name="Register" type="Node2D"]
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 400)
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7y8y5")
+script = ExtResource("1_37wl2")
+
+[node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 60
+text = "Registrate!"
+horizontal_alignment = 1
+
+[node name="LineEditRegUser" type="LineEdit" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w5oeg")
+placeholder_text = "Usuario"
+alignment = 1
+
+[node name="LineEditRegEmail" type="LineEdit" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w5oeg")
+placeholder_text = "Correo"
+alignment = 1
+
+[node name="LineEditRegPass" type="LineEdit" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_wpvxc")
+placeholder_text = "Contraseña"
+alignment = 1
+
+[node name="ButtonRegRegister" type="Button" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_njfv1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7tpvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mubhe")
+text = "REGISTRARSE"
+
+[node name="ButtonRegBack" type="Button" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_vinpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ab532")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejc2p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opb8p")
+text = "REGRESAR"
+
+[connection signal="pressed" from="LoginPanel/MarginContainer/VBoxContainer/ButtonRegRegister" to="LoginPanel" method="_on_button_reg_register_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VBoxContainer/ButtonRegBack" to="LoginPanel" method="_on_button_reg_back_pressed"]

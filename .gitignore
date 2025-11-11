@@ -25,13 +25,43 @@
 # Directorios de importación y exportación
 .import/
 .export/
-*.import
+.godot/
 
 # Archivos generados por Godot
 *.godot/
 *.mono/
 .mono/
 .cache/
+
+# Archivos generados automáticamente
+*.translation
+*.translation.import
+*.translation.remap
+*.import
+*.gen.*
+
+# Configuración de exportación
+export_presets.cfg
+
+# Archivos de usuario
+*.user
+*.user.*
+
+# Archivos de depuración
+*.log
+*.pid
+*.pdb
+*.opendb
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de Rider
+.idea/
 
 # Archivos de proyecto Godot
 *.pck
