@@ -92,7 +92,7 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 
 ## 🤝 Contribuir
 
-Las contribuciones son bienvenidas. Por favor, lee [CONTRIBUTING.md](docs/contributing.md) para más detalles.
+Las contribuciones son bienvenidas. Por favor, lee [CONTRIBUTING.md](https://github.com/jccp33/MiOasis/blob/main/CONTRIBUTING.md) para más detalles.
 
 ## 📞 Contacto
 
