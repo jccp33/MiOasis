@@ -1,0 +1,49 @@
+﻿@page
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mi Oasis</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+</head>
+<body>
+    <div class="div-modal from-top" id="loading-div" style="top: 0;"><div class="spinner spinner-dark"></div></div>
+
+    <div class="div-toasts" id="div-toasts"></div>
+
+    <div class="body-container" id="body-container">
+    </div>
+
+    <div class="login-container" id="login-container">
+        <form action="">
+            <h1 class="txt-light">Mi Oasis</h1>
+            <h2 class="txt-light">Administración</h2>
+            <br><br>
+
+            <input type="text" class="input-text bg-dark" id="email" name="email" required="" placeholder="Usuario" value="" autocomplete="off">
+            <div class="login-input-div txt-info" id="email-error">De 8 a 40 letras y/o números</div>
+            <br><br>
+
+            <div class="input-icon">
+                <input type="password" class="input-text bg-dark" id="password" name="password" required="" placeholder="Contraseña" value="" autocomplete="off">
+                <i class="fa fa-eye txt-light clickable" onclick="SHOW_PASSWORD(event, 'password')"></i>
+            </div>
+            <div class="login-input-div txt-info" id="password-error">De 8 a 40 letras y/o números</div>
+            <br><br>
+
+            <button type="button" class="btn bg-primary" id="login-container-form-button-login">INGRESAR</button>
+            <br><br>
+        </form>
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+</body>
+</html>

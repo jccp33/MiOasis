@@ -1,0 +1,81 @@
+﻿@page
+@model MiOasisAdminWeb.Pages.PlansPageModel
+@{
+    Layout = "Shared/_Layout";
+}
+
+<div class="card shadow">
+    <h2 style="text-align:center;">Planes</h2>
+
+    <form class="div-form" action="/" method="post">
+        <div class="div-form-container shadow">
+            <div>
+                <input type="number" class="input-text" id="input-PlanId" placeholder="Id" readonly="">
+                <input type="text" class="input-text" id="input-PlanName" placeholder="Nombre">
+                <input type="number" class="input-text" id="input-PriceMonthly" placeholder="Precio Mensual">
+            </div>
+            <div>
+                <input type="number" class="input-text" id="input-MaxAssetsAllowed" placeholder="Max Assets">
+                <input type="number" class="input-text" id="input-MaxPolyCount" placeholder="Max Poligonos">
+                <input type="number" class="input-text" id="input-MaxTextureSizeMB" placeholder="Max Tamaño Textura">
+            </div>
+        </div>
+        <div class="div-form-buttons">
+            <button type="button" class="btn bg-success" onclick="SaveCurrentPlan();">Guardar</button>
+            <button type="button" class="btn bg-warning" onclick="ClearAllFormInputs();">Limpiar</button>
+        </div>
+    </form>
+
+    <div class="input-icon" style="max-width: 400px; margin:auto">
+        <input type="text" class="input-text input-info" id="input-search-plan" placeholder="Buscar Plan...">
+        <i class="fa fa-search clickable txt-info" aria-hidden="true" id="input-search-plan-icon"></i>
+    </div>
+
+    <div class="pagination-div">
+        <p>Elementos por Página:</p>
+        <select id="select-items-per-page">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="40">40</option>
+            <option value="80">80</option>
+        </select>
+    </div>
+
+    <div class="pagination-div">
+        <div>
+            <button onclick="GetPaginationPlans(1);">
+                <i class="fa fa-angle-double-left"></i>
+            </button>
+            <button onclick="GetPreviousPage();">
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <input type="text" class="input-text" id="input-current-page">
+            <button onclick="GetNextPage();">
+                <i class="fa fa-angle-right"></i>
+            </button>
+            <button onclick="GetLastPage();">
+                <i class="fa fa-angle-double-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="default-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="clickable sticky"><i class="fa fa-sort" aria-hidden="true"></i> ID</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Nombre</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Precio Mensual</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Max Assets</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Max Poligonos</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Max Tamaño Textura</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-data-list">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/js/plans.js" asp-append-version="true"></script>

@@ -1,0 +1,22 @@
+﻿body {
+    background-color: black;
+}
+
+.body-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-cell {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.body-row {
+    display: flex;
+}

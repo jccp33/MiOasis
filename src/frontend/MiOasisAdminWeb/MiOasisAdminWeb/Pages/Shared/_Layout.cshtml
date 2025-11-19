@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mi Oasis - Admin</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body>
+    <div class="div-modal from-top" id="loading-div" style="top: -100vh;"><div class="spinner spinner-primary"></div></div>
+    <div class="div-toasts" id="div-toasts"></div>
+    <div class="div-snackbar" id="div-snackbar"></div>
+    <div class="datepicker-container" id="datepicker-container" style="display: none;"></div>
+    <div class="datepicker-container" id="timepicker-container" style="display: none;"></div>
+
+    <div class="root-div" id="root-div">
+        <!-- app bar goes here -->
+        <nav class="app-bar">
+            <div class="app-bar-link">
+                <a href="javascript:ShowLeftMenu();"><i class="fa fa-bars"></i></a>
+            </div>
+            <div>
+                <h1 class="app-bar-name">Mi Oasis - Admin</h1>
+            </div>
+            <div class="app-bar-link">
+                <a href="javascript:ShowTopRightMenu();"><i class="fa fa-ellipsis-v"></i></a>
+            </div>
+        </nav>
+        <!-- right menu goes here -->
+        <div class="left-menu top-right-menu" id="top-right-menu">
+            <ul>
+                <li>
+                    <a href="#">Configuración <i class="fa fa-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:Logout();">Salir <i class="fa fa-sign-out"></i></a>
+                </li>
+            </ul>
+        </div>
+        <main class="main-container">
+            <div class="left-menu" id="app-left-menu">
+                <ul>
+                    <li>
+                        <a href="Home">Inicio <i class="fa fa-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="PlansPage">Planes <i class="fa fa-star"></i></a>
+                    </li>
+                    <li>
+                        <a href="CurrencysPage">Monedas <i class="fa fa-money"></i></a>
+                    </li>
+                    <li>
+                        <a href="UsersPage">Usuarios <i class="fa fa-users"></i></a>
+                    </li>
+                    <li>
+                        <a href="BalancesPage">Balances <i class="fa fa-money"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Assets <i class="fa fa-cube"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Inventarios <i class="fa fa-archive"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Mundos <i class="fa fa-globe"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Instancias <i class="fa fa-server"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Sociales <i class="fa fa-handshake-o"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- main content goes here -->
+            <div class="main-content">
+                <div class="fixed-alerts" id="fixed-alerts">
+                </div>
+
+                <!-- main card container -->
+                @RenderBody()
+                <!-- main card container -->
+            </div>
+        </main>
+    </div>
+</body>
+</html>

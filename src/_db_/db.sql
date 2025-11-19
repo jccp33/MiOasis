@@ -20,6 +20,7 @@ CREATE TABLE "Users" (
     "Email" VARCHAR(100),
     "PlanId" INTEGER, -- FK a SubscriptionPlans
     "Status" VARCHAR(20) DEFAULT 'active',
+    "Role" VARCHAR(20) DEFAULT 'gamer',
     
     CONSTRAINT "UQ_Users_Username" UNIQUE ("Username"),
     
@@ -40,7 +41,10 @@ CREATE TABLE "UserAssets" (
     "PolyCount" INTEGER NOT NULL,
     "FileSizeMB" REAL NOT NULL,
     "Status" VARCHAR(20) NOT NULL DEFAULT 'Pending', -- Ej: 'Approved', 'Banned'
-
+    "ThumbnailPath" VARCHAR(512),  -- Ruta a la imagen de previsualización
+    "ContentType" VARCHAR(100),    -- Tipo MIME (ej: 'model/gltf-binary', 'image/png')
+    "FileExtension" VARCHAR(10);   -- Extensión (ej: .glb, .png)
+    
     -- NUEVAS COLUMNAS PARA GESTIÓN PÚBLICA:
     "IsPublic" BOOLEAN NOT NULL DEFAULT FALSE, -- Si el asset puede ser usado por otros
     "IPOwnerId" INTEGER NOT NULL, -- Dueño de la propiedad intelectual
@@ -122,3 +126,69 @@ CREATE TABLE "WorldInstances" (
     CONSTRAINT "FK_WorldInstances_WorldConfigs_WorldId" FOREIGN KEY ("WorldId")
         REFERENCES "WorldConfigs" ("WorldId") ON DELETE CASCADE
 );
+
+CREATE TABLE "UserFriendship" (
+    "Id" SERIAL PRIMARY KEY,
+
+    -- Usuario que INICIA la solicitud (Requester)
+    "RequesterId" INTEGER NOT NULL, 
+    
+    -- Usuario que RECIBE la solicitud (Target)
+    "TargetId" INTEGER NOT NULL, 
+    
+    -- Estado: 'Pending', 'Accepted', 'Blocked'
+    "Status" VARCHAR(20) NOT NULL DEFAULT 'Pending', 
+    
+    "CreatedDate" TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW(),
+    "AcceptedDate" TIMESTAMP WITHOUT TIME ZONE,
+    
+    -- Restricciones de Clave Foránea
+    -- Al borrar un usuario, se restringe la eliminación de la solicitud (debería eliminarse primero la solicitud/amistad)
+    CONSTRAINT "FK_UF_RequesterId" FOREIGN KEY ("RequesterId")
+        REFERENCES "Users" ("UserId") ON DELETE RESTRICT,
+        
+    CONSTRAINT "FK_UF_TargetId" FOREIGN KEY ("TargetId")
+        REFERENCES "Users" ("UserId") ON DELETE RESTRICT,
+        
+    -- Restricción de Unicidad para evitar solicitudes duplicadas.
+    -- Asegura que solo exista una relación entre dos usuarios, sin importar quién la inició (RequesterId, TargetId).
+    -- Este tipo de chequeo es más fácil de manejar con lógica de aplicación, pero un índice compuesto ayuda.
+    CONSTRAINT "UQ_Friendship_Pair" UNIQUE ("RequesterId", "TargetId"),
+    
+    -- Evitar que un usuario se envíe una solicitud a sí mismo
+    CONSTRAINT "CHK_Different_Users" CHECK ("RequesterId" <> "TargetId")
+);
+
+CREATE TABLE "CurrencyTypes" (
+    "CurrencyId" SERIAL PRIMARY KEY,
+    "Name" VARCHAR(50) NOT NULL,       -- Nombre legible (Ej: 'Gold', 'Gems')
+    "Abbreviation" VARCHAR(10) NOT NULL, -- Abreviatura (Ej: 'G', 'GM')
+    "IsPremium" BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+INSERT INTO "CurrencyTypes" ("Name", "Abbreviation", "IsPremium") VALUES
+('Gold', 'G', FALSE),    -- Moneda estándar (farmeable)
+('Gems', 'GM', TRUE);     -- Moneda premium (comprable con dinero real)
+
+CREATE TABLE "UserBalances" (
+    "BalanceId" SERIAL PRIMARY KEY,
+    "UserId" INTEGER NOT NULL,
+    "CurrencyId" INTEGER NOT NULL,
+    
+    -- Tipo DECIMAL con alta precisión para manejar dinero
+    "Amount" DECIMAL(18, 2) NOT NULL DEFAULT 0.00, 
+
+    -- Restricciones de Clave Foránea
+    CONSTRAINT "FK_UB_UserId" FOREIGN KEY ("UserId")
+        REFERENCES "Users" ("UserId") ON DELETE CASCADE, -- Si el usuario es borrado, se borra su saldo
+        
+    CONSTRAINT "FK_UB_CurrencyId" FOREIGN KEY ("CurrencyId")
+        REFERENCES "CurrencyTypes" ("CurrencyId") ON DELETE RESTRICT, -- No se puede borrar un tipo de moneda si hay saldos
+
+    -- Restricción de Unicidad
+    -- Asegura que un usuario solo tenga UNA fila por tipo de moneda.
+    CONSTRAINT "UQ_User_Currency_Pair" UNIQUE ("UserId", "CurrencyId")
+);
+
+ALTER TABLE IF EXISTS public."SubscriptionPlans"
+    ADD COLUMN "PriceMonthly" money DEFAULT 0.0;

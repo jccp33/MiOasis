@@ -1,0 +1,77 @@
+﻿@page
+@model MiOasisAdminWeb.Pages.BalancesPageModel
+@{
+    Layout = "Shared/_Layout";
+}
+
+<div class="card shadow">
+    <h2 style="text-align:center;">Balances de Usuarios</h2>
+
+    <form class="div-form" action="/" method="post">
+        <div class="div-form-container shadow">
+            <div>
+                <input type="text" class="input-text" id="input-BalanceId" placeholder="ID Balance" readonly>
+                <input type="text" class="input-text" id="input-UserId" placeholder="Usuario">
+            </div>
+            <div>
+                <input type="text" class="input-text" id="input-CurrencyId" placeholder="Moneda">
+                <input type="text" class="input-text" id="input-Amount" placeholder="Monto">
+            </div>
+        </div>
+        <div class="div-form-buttons">
+            <button type="button" class="btn bg-success" onclick="SaveCurrentItem();">Guardar</button>
+            <button type="button" class="btn bg-warning" onclick="ClearAllInputs();">Limpiar</button>
+        </div>
+    </form>
+
+    <div class="input-icon" style="max-width: 400px; margin:auto">
+        <input type="text" class="input-text input-info" id="input-search" placeholder="Buscar Balance...">
+        <i class="fa fa-search clickable txt-info" aria-hidden="true" id="input-search-icon"></i>
+    </div>
+
+    <div class="pagination-div">
+        <p>Elementos por Página:</p>
+        <select id="select-items-per-page">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="40">40</option>
+            <option value="80">80</option>
+        </select>
+    </div>
+
+    <div class="pagination-div">
+        <div>
+            <button onclick="GetPage(1);">
+                <i class="fa fa-angle-double-left"></i>
+            </button>
+            <button onclick="GetPreviousPage();">
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <input type="text" class="input-text" id="input-current-page">
+            <button onclick="GetNextPage();">
+                <i class="fa fa-angle-right"></i>
+            </button>
+            <button onclick="GetLastPage();">
+                <i class="fa fa-angle-double-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="default-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="clickable sticky"><i class="fa fa-sort" aria-hidden="true"></i> ID</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Usuario</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Moneda</th>
+                    <th class="clickable"><i class="fa fa-sort" aria-hidden="true"></i> Monto</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-data-list">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/js/usersBalances.js" asp-append-version="true"></script>
