@@ -1,6 +1,15 @@
 # Guía de Contribución
 
-¡Gracias por tu interés en contribuir al proyecto Oasis! Aquí encontrarás información sobre cómo contribuir de manera efectiva.
+¡Gracias por tu interés en contribuir al proyecto Oasis (MiOasis)! Aquí encontrarás información sobre cómo contribuir de manera efectiva.
+
+## 🧱 Pila Tecnológica
+
+El proyecto está compuesto por varios componentes:
+
+- Cliente en **Godot Engine 4.2+** (`src/godot/mi-oasis`)
+- **Backend API** en **ASP.NET Core** (`src/backend/MiOasisApi/MiOasisApi`)
+- **Panel de administración web** con **ASP.NET Core Razor Pages** (`src/frontend/MiOasisAdminWeb/MiOasisAdminWeb`)
+- Base de datos **PostgreSQL**
 
 ## 🚀 Cómo Contribuir
 
@@ -23,8 +32,10 @@
 
 ## 🧪 Pruebas
 
-- Asegúrate de que todas las pruebas pasen antes de enviar un PR.
-- Añade pruebas para nuevas funcionalidades.
+- Asegúrate de que la solución compila sin errores:
+  - `dotnet build` en los proyectos de backend/frontend.
+- Añade pruebas automatizadas cuando sea posible (xUnit, MSTest o similar para .NET).
+- Para cambios en Godot, verifica que el proyecto arranca sin errores desde el editor.
 
 ## 📜 Licencia
 
