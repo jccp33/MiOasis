@@ -1,0 +1,42 @@
+# Dependencias instaladas; conservar package.json y package-lock.json.
+node_modules/
+
+# Configuración local y credenciales; permitir plantillas sin secretos.
+.env
+.env.*
+!.env.example
+!.env.*.example
+/.aws/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Estado del mundo, bases de datos y cargas generadas en ejecución.
+# Los catálogos y assets básicos en assets/ sí se versionan.
+/data/*
+!/data/.gitkeep
+!/data/README.md
+/uploads/
+
+# Resultados generados y temporales.
+/dist/
+/build/
+/coverage/
+/.nyc_output/
+/test-results/
+/playwright-report/
+/tmp/
+/temp/
+*.log
+*.tsbuildinfo
+*.swp
+*.swo
+*~
+
+# Archivos locales del sistema y del editor.
+.DS_Store
+Thumbs.db
+Desktop.ini
+/.idea/
+/.vscode/*.local.json

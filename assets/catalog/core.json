@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "asset:builtin:cube",
+      "kind": "builtin",
+      "primitive": "cube",
+      "category": "prop",
+      "rigId": null,
+      "metrics": { "bytes": 0, "triangles": 12, "materials": 1, "bones": 0, "textureBytes": 0, "drawCalls": 1, "textureSize": 0 }
+    },
+    {
+      "id": "asset:builtin:avatar-capsule",
+      "kind": "builtin",
+      "primitive": "avatar-capsule",
+      "category": "avatar",
+      "rigId": null,
+      "metrics": { "bytes": 0, "triangles": 612, "materials": 2, "bones": 0, "textureBytes": 0, "drawCalls": 2, "textureSize": 0 }
+    }
+  ]
+}
